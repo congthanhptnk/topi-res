@@ -1,0 +1,19 @@
+.layout {
+  max-width: 45rem;
+  margin: 10rem auto 0 auto;
+  border: 1.8rem solid var(--light-color);
+  border-radius: 1rem;
+  background: var(--light-color);
+  position: relative;
+}
+.content {
+  padding: 2.5rem 2rem;
+  background: var(--ultralight-color);
+  border-radius: 0 0 .7rem .7rem;
+  min-height: 33rem;
+  padding-bottom: 11rem; /* make sure tabbar is always on bottom */
+}
+.contentNoSpace {
+  padding: 0;
+  padding-bottom: 9rem;
+}
