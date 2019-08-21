@@ -1,0 +1,9 @@
+.container{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.textContainer{
+  display: flex;
+  flex-direction: column;
+}

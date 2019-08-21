@@ -2,9 +2,8 @@
   text-align: left;
   padding: 2rem 2rem;
   background-color: var(--primary-color) ;
-  background-repeat: repeat, no-repeat;
-  background-position: 0 0, calc(100% - 2rem) 1.7rem;
-  background-size: auto, 22%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .title {
