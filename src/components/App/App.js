@@ -8,7 +8,9 @@ function App() {
   return (
     <main className={styles.layout}>
       <Header title="Topi"/>
-      <FoodOption />
+      <div style={{width: "50%"}}>
+        <FoodOption />
+      </div>
       <Button type="submit" value="Add" text="OK" />
     </main>
   );
