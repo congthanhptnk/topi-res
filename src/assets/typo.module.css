@@ -1,0 +1,25 @@
+:global(:root){
+  --font-base: 1.8rem;
+}
+
+.title {
+  font-family: 'Roboto', serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.titleMini {
+  display: block;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 300;
+  margin-bottom: .7rem;
+}
+.paragraphs {
+  font-size: var(--font-base);
+  line-height: 1.3;
+  font-weight: 400;
+}
+.paragraphs p {
+  margin: 1.4rem 0;
+}
