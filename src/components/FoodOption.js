@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './FoodOption.module.css';
-import Button from './Button';
+import Button from './reusable/Button';
 
 const FoodOption = ({ name, ingredients }) => {
   return(

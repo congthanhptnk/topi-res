@@ -17,12 +17,12 @@
 }
 
 .name{
-  composes: titleMini from "../../assets/typo.module.css";
+  composes: titleMini from "../assets/typo.module.css";
   margin-bottom: 0.5rem;
 }
 
 .ingredients{
-  composes: paragraphs from "../../assets/typo.module.css";
+  composes: paragraphs from "../assets/typo.module.css";
   font-size: 1rem;
   font-style: italic;
   color: gray;
@@ -30,5 +30,5 @@
 
 .price{
   flex: 1;
-  composes: titleMini from "../../assets/typo.module.css";
+  composes: titleMini from "../assets/typo.module.css";
 }
