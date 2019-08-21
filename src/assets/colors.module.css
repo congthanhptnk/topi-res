@@ -1,0 +1,29 @@
+:root {
+  --primary-color: #FFCA88;
+  --dark-color: #444444;
+  --light-color: #fff5ea;
+  --ultralight-color: #fff;
+  --gray-color: #b2b2b2;
+  --gray-light-color: #e3e3e3;
+  --success-color:  #93fac5;
+}
+
+.color-primary {
+  color: var(--primary-color);
+}
+
+.color-dark {
+  color: var(--dark-color);
+}
+
+.color-light {
+  color: var(--light-color);
+}
+
+.color-gray {
+  color: var(--light-gray);
+}
+
+.color-success {
+  color: var(--light-gray);
+}

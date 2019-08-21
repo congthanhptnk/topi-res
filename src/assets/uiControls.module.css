@@ -1,0 +1,15 @@
+.button {
+  display: block;
+  outline: none;
+  border: 0;
+  border-radius: .3rem;
+  background-color: var(--success-color);
+  color: var(--dark-color);
+  padding: 1.5rem 3rem;
+  font-size: 1.6rem;
+}
+
+.button:active {
+  color: #fff;
+  background-color: var(--dark-color);
+}
