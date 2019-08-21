@@ -2,14 +2,14 @@ import React from 'react';
 import styles from './FoodOption.module.css';
 import Button from './Button';
 
-const FoodOption = () => {
+const FoodOption = ({ name, ingredients }) => {
   return(
     <div className={styles.container}>
       <div className={styles.textContainer}>
-        <p>Name</p>
-        <p>Ingredients</p>
+        <p className={styles.name}>{name}</p>
+        <p className={styles.ingredients}>{ingredients}</p>
       </div>
-      <p className={styles.flexTest}>50</p>
+      <p className={styles.price}>50</p>
       <div>
         <Button type="submit" text="+"/>
       </div>

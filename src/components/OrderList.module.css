@@ -1,0 +1,40 @@
+.orderContainer{
+  margin: 2rem;
+  background-color: var(--gray-light-color);
+  padding: 0.5rem;
+}
+
+.orderItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.totalContainer{
+  composes: orderContainer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount{
+  flex: 1;
+}
+
+.name{
+  flex: 3;
+}
+
+.price{
+  flex: 1;
+  text-align: center;
+}
+
+.remove{
+  color: var(--gray-color);
+  font-size: 1rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}

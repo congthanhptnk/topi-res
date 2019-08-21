@@ -7,3 +7,22 @@
   border-radius: 0 0 .7rem .7rem;
   padding: 2rem;
 }
+
+.mainBody{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.foodOptionContainer{
+  flex: 2;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.orderListContainer{
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
