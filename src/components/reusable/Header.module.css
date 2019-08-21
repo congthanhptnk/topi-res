@@ -1,0 +1,11 @@
+.header {
+  text-align: left;
+  padding: 2rem 2rem;
+  background-color: var(--primary-color) ;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  composes: title from "../../assets/typo.module.css";
+}

@@ -1,0 +1,49 @@
+.orderContainer{
+  margin: 2rem;
+  background-color: var(--ultralight-color);
+  padding: 0.5rem;
+}
+
+.orderItem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem;
+}
+
+.totalContainer{
+  composes: orderContainer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total{
+  composes: titleMini from "../assets/typo.module.css";
+  text-transform: none;
+}
+
+.amount{
+  flex: 1;
+  composes: paragraphs from "../assets/typo.module.css";
+  color: var(--gray-color);
+}
+
+.name{
+  flex: 3;
+  composes: paragraphs from "../assets/typo.module.css";
+}
+
+.price{
+  flex: 1;
+  text-align: center;
+  composes: paragraphs from "../assets/typo.module.css";
+}
+
+.remove{
+  color: var(--gray-color);
+  font-size: 1rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
