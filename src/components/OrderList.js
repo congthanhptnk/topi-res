@@ -42,8 +42,8 @@ const OrderList = () => {
         </li>
       </ul>
       <div className={styles.totalContainer}>
-        <p>Total price</p>
-        <p>&euro; 50</p>
+        <p className={styles.total}>Total price</p>
+        <p className={styles.total}>&euro; 50</p>
       </div>
     </div>
   );

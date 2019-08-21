@@ -16,13 +16,22 @@ function App() {
           <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
           <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
           <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
+          
         </div>
+        <div className={styles.divider}/>
         <div className={styles.orderListContainer}>
-          <h1>Order</h1>
+          <h1 className={styles.orderTitle}>Order</h1>
           <OrderList />
         </div>
       </div>
-
       <Button type="submit" value="Add" text="OK" />
     </main>
   );

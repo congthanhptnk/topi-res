@@ -1,6 +1,6 @@
 .orderContainer{
   margin: 2rem;
-  background-color: var(--gray-light-color);
+  background-color: var(--ultralight-color);
   padding: 0.5rem;
 }
 
@@ -18,17 +18,26 @@
   justify-content: space-between;
 }
 
+.total{
+  composes: titleMini from "../assets/typo.module.css";
+  text-transform: none;
+}
+
 .amount{
   flex: 1;
+  composes: paragraphs from "../assets/typo.module.css";
+  color: var(--gray-color);
 }
 
 .name{
   flex: 3;
+  composes: paragraphs from "../assets/typo.module.css";
 }
 
 .price{
   flex: 1;
   text-align: center;
+  composes: paragraphs from "../assets/typo.module.css";
 }
 
 .remove{

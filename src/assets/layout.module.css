@@ -1,13 +1,13 @@
 .layout {
   background: var(--light-color);
   position: relative;
+  min-height: 100vh;
 }
 .content {
   padding: 2.5rem 2rem;
   background: var(--ultralight-color);
   border-radius: 0 0 .7rem .7rem;
-  min-height: 33rem;
-  padding-bottom: 11rem; /* make sure tabbar is always on bottom */
+  min-height: 100%;
 }
 .contentNoSpace {
   padding: 0;

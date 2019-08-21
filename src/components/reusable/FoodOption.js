@@ -10,9 +10,7 @@ const FoodOption = ({ name, ingredients }) => {
         <p className={styles.ingredients}>{ingredients}</p>
       </div>
       <p className={styles.price}>50</p>
-      <div>
-        <Button type="submit" text="+"/>
-      </div>
+      <Button type="submit" text="Select"/>
     </div>
   );
 };
