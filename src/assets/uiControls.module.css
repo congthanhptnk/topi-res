@@ -5,8 +5,8 @@
   border-radius: .3rem;
   background-color: var(--success-color);
   color: var(--dark-color);
-  padding: 1.5rem 3rem;
-  font-size: 1.6rem;
+  padding: 5px 10px;
+  font-size: 1rem;
 }
 
 .button:active {

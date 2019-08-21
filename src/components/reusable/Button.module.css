@@ -1,6 +1,6 @@
 .button {
   composes: button  from "../../assets/uiControls.module.css";
-  margin-left: 2rem;
-  margin-right: 2rem;
-  margin-top: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-top: .5rem;
 }

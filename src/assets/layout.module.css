@@ -1,8 +1,4 @@
 .layout {
-  max-width: 45rem;
-  margin: 10rem auto 0 auto;
-  border: 1.8rem solid var(--light-color);
-  border-radius: 1rem;
   background: var(--light-color);
   position: relative;
 }
