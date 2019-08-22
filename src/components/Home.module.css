@@ -4,12 +4,6 @@
   flex-direction: row;
 }
 
-.foodOptionContainer{
-  flex: 2;
-  padding: 2rem;
-  flex-direction: column;
-}
-
 .orderListContainer{
   flex: 1;
   padding: 2rem;
