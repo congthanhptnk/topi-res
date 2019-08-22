@@ -12,9 +12,7 @@ const Menu = () => {
       return(
         <FoodOption
           key={foodItem.id}
-          name={foodItem.name}
-          ingredients={foodItem.ingredients}
-          price={foodItem.price}
+          foodItem={foodItem}
         />
       );
     });

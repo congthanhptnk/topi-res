@@ -4,15 +4,8 @@ import Header from './reusable/Header';
 import Footer from './reusable/Footer';
 import OrderList from './OrderList';
 import styles from './Home.module.css';
-import MenuContext from '../store/MenuContext';
 
 const Home = () => {
-  const { order } = useContext(MenuContext);
-
-  const test = () => {
-    console.log(order);
-  }
-
   return(
     <>
       <Header title="Topi"/>

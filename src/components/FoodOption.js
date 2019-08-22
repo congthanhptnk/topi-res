@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './FoodOption.module.css';
 import Button from './reusable/Button';
 
-const FoodOption = ({ name, ingredients, price }) => {
+import MenuContext from '../context/MenuContext';
+
+const FoodOption = ({ foodItem }) => {
+  const {state, dispatch} = useContext(MenuContext);
+  const {name, ingredients, price} = foodItem;
+
+  const onClick = () => {
+    dispatch({type: "order", payload: foodItem});
+  }
+
   return(
     <div className={styles.container}>
       <div className={styles.textContainer}>
@@ -10,7 +19,7 @@ const FoodOption = ({ name, ingredients, price }) => {
         <p className={styles.ingredients}>{ingredients}</p>
       </div>
       <p className={styles.price}>{price}</p>
-      <Button type="submit" text="Select"/>
+      <Button type="submit" text="Select" onClick={onClick}/>
     </div>
   );
 };
