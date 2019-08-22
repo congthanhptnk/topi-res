@@ -1,5 +1,4 @@
 import React from 'react';
-import FoodItem from '../models/FoodItem';
 import MenuReducer, { menuInitialState } from '../reducers/MenuReducer';
 
 const MenuContext = React.createContext();

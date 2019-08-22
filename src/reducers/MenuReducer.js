@@ -1,4 +1,4 @@
-import React from 'react';
+
 import FoodItem from "../models/FoodItem";
 import Order from "../models/Order";
 
@@ -19,11 +19,24 @@ const MenuReducer = (state, action) => {
         const newOrder = new Order(foodItem);
         return ({orders: [...state.orders, newOrder]});
       }
-    case "remove":
-      console.log("remove");
-      return menuInitialState;
+    case "decrease":
+      const curItem = action.payload;
+      if(curItem.amount > 1){
+        curItem.decrement();
+        return {orders: [...state.orders]};
+      } else {
+        const orders = state.orders;
+        orders.splice(orders.indexOf(curItem), 1);
+        return {orders: orders};
+      }
+    case "total":
+      if(state){
+        let total = 0
+        return state.orders.map(curOrder => total += curOrder);
+      } else {
+        return 0
+      }
     default:
-      console.log("something")
       return menuInitialState;
   }
 };
