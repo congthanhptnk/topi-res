@@ -11,7 +11,10 @@ const MenuContext = React.createContext({
     new FoodItem("Tea", 50, "Tea bag, water, sugar", 6 ),
     new FoodItem("Pizza", 50, "Pork, pineapple, bread", 7 )
   ],
-  orders: []
+  orders: {
+    something: "something",
+    weed: "sdddd"
+  }
 });
 
 export const MenuProvider = MenuContext.Provider;

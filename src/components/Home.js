@@ -1,19 +1,23 @@
-import React from 'react';
-import FoodOption from './FoodOption';
+import React, { useContext } from 'react';
+import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
 import OrderList from './OrderList';
 import styles from './Home.module.css';
+import MenuContext from '../store/MenuContext';
 
 const Home = () => {
+  const { order } = useContext(MenuContext);
+
+  const test = () => {
+    console.log(order);
+  }
+
   return(
     <>
       <Header title="Topi"/>
       <div className={styles.mainBody}>
-        <div className={styles.foodOptionContainer}>
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-        </div>
+        <Menu />
         <div className={styles.divider}/>
         <div className={styles.orderListContainer}>
           <h1 className={styles.orderTitle}>Order</h1>
