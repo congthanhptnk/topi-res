@@ -19,7 +19,7 @@ const FoodOption = ({ foodItem }) => {
         <p className={styles.name}>{name}</p>
         <p className={styles.ingredients}>{ingredients}</p>
       </div>
-      <p className={styles.price}>{price}</p>
+      <p className={styles.price}>&euro; {price}</p>
       <Button type="submit" text="Select" onClick={onClick}/>
     </div>
   );
