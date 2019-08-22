@@ -29,13 +29,6 @@ const MenuReducer = (state, action) => {
         orders.splice(orders.indexOf(curItem), 1);
         return {orders: orders};
       }
-    case "total":
-      if(state){
-        let total = 0
-        return state.orders.map(curOrder => total += curOrder);
-      } else {
-        return 0
-      }
     default:
       return menuInitialState;
   }
