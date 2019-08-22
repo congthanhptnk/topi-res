@@ -6,6 +6,7 @@ import MenuContext from '../context/MenuContext';
 
 const FoodOption = ({ foodItem }) => {
   const {state, dispatch} = useContext(MenuContext);
+  console.log(state);
   const {name, ingredients, price} = foodItem;
 
   const onClick = () => {
