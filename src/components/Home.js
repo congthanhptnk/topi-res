@@ -13,18 +13,6 @@ const Home = () => {
         <div className={styles.foodOptionContainer}>
           <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
           <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-          <FoodOption name="Sushi" ingredients="Salmon, rice, vinegar" />
-
         </div>
         <div className={styles.divider}/>
         <div className={styles.orderListContainer}>
