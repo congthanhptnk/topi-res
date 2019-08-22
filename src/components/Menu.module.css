@@ -1,0 +1,5 @@
+.menu{
+  flex: 2;
+  padding: 2rem;
+  flex-direction: column;
+}

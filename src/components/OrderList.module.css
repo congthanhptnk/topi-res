@@ -45,5 +45,6 @@
   font-size: 1rem;
   background: transparent;
   border: 0;
+  outline: none;
   cursor: pointer;
 }
