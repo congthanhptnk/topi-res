@@ -5,12 +5,15 @@ import './assets/index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import { FirebaseProvider } from './context/FirebaseContext';
+import { AuthProvider } from './context/AuthContext';
 
 ReactDOM.render(
   <FirebaseProvider>
+    <AuthProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    </AuthProvider>
   </FirebaseProvider>
   ,
   document.getElementById('root'));

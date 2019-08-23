@@ -5,35 +5,35 @@ import Login from '../Login';
 import styles from './App.module.css';
 import { MenuProvider } from '../../context/MenuContext';
 import { OrdersProvider } from '../../context/OrdersContext';
-import { AuthProvider } from '../../context/AuthContext';
+import AuthContext, { AuthProvider } from '../../context/AuthContext';
 import FirebaseContext from '../../context/FirebaseContext';
+import { LOGIN_USER_SUCCESS } from '../../reducers/types';
 
 function App() {
   const firebase = useContext(FirebaseContext);
+  const {state, dispatch} = useContext(AuthContext);
 
   useEffect(() => {
-    firebase.auth().signInAnonymously().then((x) => {
-      console.log("Signed in");
-    }, (err) => {
-      console.log(err);
-    }).catch(err => {
-      console.log(err);
-    });
-  });
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      if(user){
+        console.log(user);
+        dispatch({type: LOGIN_USER_SUCCESS, payload: user})
+      }
+    })
+    return () => unsubscribe();
+  },[]);
 
   return (
-    <AuthProvider>
     <OrdersProvider>
       <MenuProvider>
         <main className={styles.layout}>
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route path='/login' component={Login} />
+            <Route exact path='/home' component={Home} />
+            <Route exact path='/' component={Login} />
           </Switch>
         </main>
       </MenuProvider>
     </OrdersProvider>
-    </AuthProvider>
   );
 };
 

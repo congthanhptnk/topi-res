@@ -1,7 +1,8 @@
 import firebase from "firebase";
 import {
   LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL
+  LOGIN_USER_FAIL,
+  LOGOUT_USER
 } from '../reducers/types';
 
 export const loginUser = (email, password, cb) => {
@@ -16,4 +17,13 @@ export const loginUser = (email, password, cb) => {
       const dispatch = {type: LOGIN_USER_FAIL, payload: err};
       cb(dispatch);
     })
+}
+
+export const logout = (cb) => {
+  firebase.auth().signOut().then((e) => {
+    const dispatch = {type: LOGOUT_USER, payload: e};
+    cb(dispatch)
+  }, err => {
+    console.log(err);
+  })
 }

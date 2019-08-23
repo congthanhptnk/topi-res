@@ -2,7 +2,8 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   EMAIL_CHANGED,
-  PASSWORD_CHANGED
+  PASSWORD_CHANGED,
+  LOGOUT_USER
 } from './types'
 
 const authInitialState = {
@@ -23,6 +24,8 @@ const AuthReducer = (state, action) => {
       return {...state, email: action.payload};
     case PASSWORD_CHANGED:
       return {...state, pass: action.payload};
+    case LOGOUT_USER:
+      return authInitialState;
     default:
       return authInitialState;
   };
