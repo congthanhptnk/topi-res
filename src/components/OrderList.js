@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './OrderList.module.css';
-import OrdersContext from '../context/OrdersContext';
+import { OrdersContext } from '../context';
 import {
   REMOVE_ITEM
 } from '../reducers/types';

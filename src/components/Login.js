@@ -1,7 +1,7 @@
 import React, { useEffect, createRef, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import Button from './reusable/Button';
-import AuthContext from '../context/AuthContext';
+import { AuthContext } from '../context';
 import { loginUser, logout } from '../api/AuthApi';
 import { EMAIL_CHANGED, PASSWORD_CHANGED } from '../reducers/types';
 

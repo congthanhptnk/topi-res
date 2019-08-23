@@ -38,5 +38,4 @@ const OrdersReducer = (state, action) => {
 
 
 
-export { ordersInitialState };
-export default OrdersReducer;
+export { ordersInitialState, OrdersReducer };

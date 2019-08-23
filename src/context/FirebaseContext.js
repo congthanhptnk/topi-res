@@ -21,5 +21,4 @@ const FirebaseProvider = (props) => {
 
 const FirebaseConsumer = FirebaseContext.Consumer;
 
-export { FirebaseConsumer, FirebaseProvider };
-export default FirebaseContext;
+export { FirebaseConsumer, FirebaseProvider, FirebaseContext };

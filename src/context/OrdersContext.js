@@ -1,5 +1,5 @@
 import React from 'react';
-import OrdersReducer, { ordersInitialState } from '../reducers/OrdersReducer';
+import {OrdersReducer, ordersInitialState } from '../reducers';
 
 const OrdersContext = React.createContext();
 
@@ -11,5 +11,4 @@ const OrdersProvider = (props) => {
 }
 
 const OrdersConsumer = OrdersContext.Consumer;
-export {OrdersProvider, OrdersConsumer};
-export default OrdersContext;
+export {OrdersProvider, OrdersConsumer, OrdersContext};

@@ -6,7 +6,7 @@ import OrderList from './OrderList';
 import Button from './reusable/Button';
 import styles from './Home.module.css';
 
-import AuthContext from '../context/AuthContext';
+import { AuthContext } from '../context';
 import { logout } from '../api';
 import { withRouter } from 'react-router-dom';
 

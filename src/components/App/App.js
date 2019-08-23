@@ -3,10 +3,13 @@ import { Route, Switch } from 'react-router-dom';
 import Home from '../Home';
 import Login from '../Login';
 import styles from './App.module.css';
-import { MenuProvider } from '../../context/MenuContext';
-import { OrdersProvider } from '../../context/OrdersContext';
-import AuthContext, { AuthProvider } from '../../context/AuthContext';
-import FirebaseContext from '../../context/FirebaseContext';
+import {
+  MenuProvider,
+  OrdersProvider,
+  AuthProvider,
+  AuthContext,
+  FirebaseContext
+} from '../../context';
 import { LOGIN_USER_SUCCESS } from '../../reducers/types';
 
 function App() {

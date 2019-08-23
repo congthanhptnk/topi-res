@@ -15,5 +15,4 @@ const MenuReducer = (state, action) => {
   };
 };
 
-export { menuInitialState };
-export default MenuReducer;
+export { menuInitialState, MenuReducer };
