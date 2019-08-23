@@ -1,5 +1,5 @@
-import FoodItem from "../models/FoodItem";
 import Order from "../models/Order";
+import { getMenu } from '../api';
 
 const menuInitialState = {
   orders: []
@@ -28,6 +28,9 @@ const MenuReducer = (state, action) => {
         orders.splice(orders.indexOf(curItem), 1);
         return {orders: orders};
       }
+    case "get-menu":
+      getMenu();
+      return null;
     default:
       return menuInitialState;
   }

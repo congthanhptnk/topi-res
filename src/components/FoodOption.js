@@ -9,6 +9,7 @@ const FoodOption = ({ foodItem }) => {
 
   const onClick = () => {
     dispatch({type: "order", payload: foodItem});
+    dispatch({type: "get-menu", payload: "nothing"});
   }
 
   return(
