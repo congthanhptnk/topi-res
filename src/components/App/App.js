@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import Home from '../Home';
 import styles from './App.module.css';
 import { MenuProvider } from '../../context/MenuContext';
+import { OrdersProvider } from '../../context/OrdersContext';
 import { FirebaseProvider } from '../../context/FirebaseContext';
 
 function App() {
@@ -29,11 +30,13 @@ function App() {
 
   return (
     <FirebaseProvider>
+    <OrdersProvider>
     <MenuProvider>
       <main className={styles.layout}>
         <Home />
       </main>
     </MenuProvider>
+    </OrdersProvider>
     </FirebaseProvider>
   );
 };

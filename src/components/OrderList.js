@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './OrderList.module.css';
-import MenuContext from '../context/MenuContext';
+import OrdersContext from '../context/OrdersContext';
 
 const OrderList = () => {
-  const { state, dispatch } = React.useContext(MenuContext);
+  const { state, dispatch } = React.useContext(OrdersContext);
 
   const getOrderTotal = () => {
     if(state){
