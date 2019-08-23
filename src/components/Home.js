@@ -3,9 +3,14 @@ import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
 import OrderList from './OrderList';
+import Button from './reusable/Button';
 import styles from './Home.module.css';
 
 const Home = () => {
+
+  const onSignIn = () => {
+  }
+
   return(
     <>
       <Header title="Topi"/>
@@ -17,6 +22,7 @@ const Home = () => {
           <OrderList />
         </div>
       </div>
+      <Button type="submit" value="Add" text="Signin" onClick={onSignIn}/>
       <Footer />
     </>
   );

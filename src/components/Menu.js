@@ -1,21 +1,35 @@
-import React, { useState } from 'react';
-import FoodOption from './FoodOption';
-import FoodItem from '../models/FoodItem';
+import React, { useEffect, useContext } from 'react';
 import styles from './Menu.module.css';
+import placeholder from '../assets/icons/placeholderMenu.svg';
+import FoodOption from './FoodOption';
+import MenuContext from '../context/MenuContext';
+import { getMenu } from '../api';
+import {
+  GET_MENU
+} from '../reducers/types';
 
 const Menu = () => {
-  const [ state, setState ] = useState(MenuList);
-  const { menu } = state;
+  const { state, dispatch } = useContext(MenuContext);
+
+  useEffect(() => {
+    getMenu(menu => {
+      dispatch({type: GET_MENU, payload: menu});
+    })
+  }, []);
 
   const renderMenu = () => {
-    return menu.map(foodItem => {
-      return(
-        <FoodOption
-          key={foodItem.id}
-          foodItem={foodItem}
-        />
-      );
-    });
+    if(state.menu.length > 0) {
+      return state.menu.map(foodItem => {
+        return(
+          <FoodOption
+            key={foodItem.key}
+            foodItem={foodItem}
+          />
+        );
+      });
+    } else {
+      return (<img src={placeholder} alt="Menu" />);
+    }
   };
 
   return(
@@ -23,18 +37,6 @@ const Menu = () => {
       {renderMenu()}
     </div>
   )
-};
-
-const MenuList = {
-  menu: [
-    new FoodItem("Sushi", 50, "Salmon, rice, vinegar", 1 ),
-    new FoodItem("Burger", 20, "Beef, bread, lettuce", 2 ),
-    new FoodItem("Water", 10, "None", 3 ),
-    new FoodItem("Pho", 20, "Beef, rice noodle, onion", 4 ),
-    new FoodItem("Fried egg", 570, "Egg, vege oil", 5 ),
-    new FoodItem("Tea", 90, "Tea bag, water, sugar", 6 ),
-    new FoodItem("Pizza", 70, "Pork, pineapple, bread", 7 )
-  ]
 };
 
 export default Menu;

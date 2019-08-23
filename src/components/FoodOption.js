@@ -1,16 +1,15 @@
 import React, { useContext } from 'react';
 import styles from './FoodOption.module.css';
 import Button from './reusable/Button';
-
-import MenuContext from '../context/MenuContext';
+import OrdersContext from '../context/OrdersContext';
+import { ORDER_ITEM } from '../reducers/types';
 
 const FoodOption = ({ foodItem }) => {
-  const {state, dispatch} = useContext(MenuContext);
-  console.log(state);
+  const {state, dispatch} = useContext(OrdersContext);
   const {name, ingredients, price} = foodItem;
 
   const onClick = () => {
-    dispatch({type: "order", payload: foodItem});
+    dispatch({type: ORDER_ITEM, payload: foodItem});
   }
 
   return(

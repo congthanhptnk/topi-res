@@ -1,40 +1,20 @@
-
-import FoodItem from "../models/FoodItem";
-import Order from "../models/Order";
+import { getMenu } from '../api';
+import {
+  GET_MENU
+} from './types';
 
 const menuInitialState = {
-  orders: []
+  menu: []
 };
 
 const MenuReducer = (state, action) => {
   switch(action.type){
-    case "order":
-      const foodItem = action.payload
-      const order = state.orders.find(curOrder => curOrder.foodItem.id === foodItem.id)
-
-      if(order){
-        order.increment();
-        return ({orders: [...state.orders]})
-      } else {
-        const newOrder = new Order(foodItem);
-        return ({orders: [...state.orders, newOrder]});
-      }
-    case "decrease":
-      const curItem = action.payload;
-      if(curItem.amount > 1){
-        curItem.decrement();
-        return {orders: [...state.orders]};
-      } else {
-        const orders = state.orders;
-        orders.splice(orders.indexOf(curItem), 1);
-        return {orders: orders};
-      }
+    case GET_MENU:
+      return {menu: action.payload};
     default:
-      return menuInitialState;
-  }
+      return null;
+  };
 };
-
-
 
 export { menuInitialState };
 export default MenuReducer;

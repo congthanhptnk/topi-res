@@ -1,0 +1,45 @@
+{"menu": [
+  {
+    "id": 1,
+    "name": "Sushi",
+    "price": 5,
+    "ingredients": "Salmon, rice, vinegar"
+  },
+  {
+    "id": 2,
+    "name": "Burger",
+    "price": 10,
+    "ingredients": "Beef, bread, lettuce"
+  },
+  {
+    "id": 3,
+    "name": "Water",
+    "price": 1,
+    "ingredients": "None"
+  },
+  {
+    "id": 4,
+    "name": "Pho",
+    "price": 15,
+    "ingredients": "Beef, rice noodle, onion"
+  },
+  {
+    "id": 5,
+    "name": "Fried egg",
+    "price": 4,
+    "ingredients": "Egg, vege oil"
+  },
+  {
+    "id": 6,
+    "name": "Tea",
+    "price": 2,
+    "ingredients": "Tea bag, water, sugar"
+  },
+  {
+    "id": 7,
+    "name": "Pizza",
+    "price": 20,
+    "ingredients": "Pork, pineapple, bread"
+  }
+]
+}

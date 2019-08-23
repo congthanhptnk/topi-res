@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './OrderList.module.css';
-import MenuContext from '../context/MenuContext';
+import OrdersContext from '../context/OrdersContext';
+import {
+  REMOVE_ITEM
+} from '../reducers/types';
 
 const OrderList = () => {
-  const { state, dispatch } = React.useContext(MenuContext);
+  const { state, dispatch } = React.useContext(OrdersContext);
 
   const getOrderTotal = () => {
     if(state){
@@ -16,7 +19,7 @@ const OrderList = () => {
   };
 
   const decreaseItem = (curOrder) => {
-    dispatch({type: "decrease", payload: curOrder});
+    dispatch({type: REMOVE_ITEM, payload: curOrder});
   };
 
   const updateOrderList = () => {
@@ -42,6 +45,8 @@ const OrderList = () => {
 
   return (
     <div>
+    {state.orders.length > 0 ? (
+      <>
       <ul className={styles.orderContainer}>
         {updateOrderList()}
       </ul>
@@ -49,6 +54,8 @@ const OrderList = () => {
         <p className={styles.total}>Total price</p>
         <p className={styles.total}>&euro; {getOrderTotal()}</p>
       </div>
+      </>
+    ) : (<p>something</p>)}
     </div>
   );
 };
