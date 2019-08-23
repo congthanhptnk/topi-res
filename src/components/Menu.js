@@ -15,7 +15,7 @@ const Menu = () => {
     getMenu(menu => {
       dispatch({type: GET_MENU, payload: menu});
     })
-  }, []);
+  }, [dispatch]);
 
   const renderMenu = () => {
     if(state.menu.length > 0) {

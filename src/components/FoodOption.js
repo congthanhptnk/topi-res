@@ -5,7 +5,7 @@ import { OrdersContext } from '../context';
 import { ORDER_ITEM } from '../reducers/types';
 
 const FoodOption = ({ foodItem }) => {
-  const {state, dispatch} = useContext(OrdersContext);
+  const dispatch = useContext(OrdersContext).dispatch;
   const {name, ingredients, price} = foodItem;
 
   const onClick = () => {

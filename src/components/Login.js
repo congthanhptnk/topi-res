@@ -1,24 +1,23 @@
 import React, { useEffect, createRef, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import Button from './reusable/Button';
+import SignupForm from './SignupForm';
 import { AuthContext } from '../context';
 import { loginUser, logout } from '../api/AuthApi';
-import { EMAIL_CHANGED, PASSWORD_CHANGED } from '../reducers/types';
 
 const Login = (props) => {
   const { state, dispatch } = useContext(AuthContext);
+  const { user, error } = state;
 
   const emailRef = createRef();
   const passRef = createRef();
 
   const onLogin = e => {
     e.preventDefault();
-    console.log(state);
 
     if(emailRef.current.value && passRef.current.value) {
       loginUser(emailRef.current.value, passRef.current.value, (action) => {
         dispatch(action);
-        //props.history.push('/home');
       });
     }
   }
@@ -31,21 +30,16 @@ const Login = (props) => {
     });
   }
 
-  useEffect(() => {
-    if(state.user){
-      props.history.push('/home');
-    }
-  })
+  const renderError = () => {
+    if(error) { return <p>{error}</p> };
+  }
 
-  // useEffect(() => {
-  //   dispatch({type: EMAIL_CHANGED, payload: emailRef.current.value});
-  // },[dispatch, emailRef])
-  //
-  // useEffect(() => {
-  //   dispatch({type: PASSWORD_CHANGED, payload: passRef.current.value});
-  // },[dispatch, passRef])
+  useEffect(() => {
+    if(user) { props.history.push('/home') }
+  },[user, error])
 
   return (
+    <>
     <form method="post">
       <input
         name="email"
@@ -74,6 +68,9 @@ const Login = (props) => {
         onClick={onLogout}
       />
     </form>
+    {renderError()}
+    <SignupForm />
+    </>
   )
 };
 

@@ -6,7 +6,6 @@ import styles from './App.module.css';
 import {
   MenuProvider,
   OrdersProvider,
-  AuthProvider,
   AuthContext,
   FirebaseContext
 } from '../../context';
@@ -14,7 +13,7 @@ import { LOGIN_USER_SUCCESS } from '../../reducers/types';
 
 function App() {
   const firebase = useContext(FirebaseContext);
-  const {state, dispatch} = useContext(AuthContext);
+  const dispatch = useContext(AuthContext).dispatch;
 
   useEffect(() => {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
@@ -24,7 +23,7 @@ function App() {
       }
     })
     return () => unsubscribe();
-  },[]);
+  }, [dispatch, firebase]);
 
   return (
     <OrdersProvider>
