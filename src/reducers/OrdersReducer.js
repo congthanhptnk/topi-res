@@ -1,4 +1,8 @@
 import Order from "../models/Order";
+import {
+  ORDER_ITEM,
+  REMOVE_ITEM
+} from './types';
 
 const ordersInitialState = {
   orders: []
@@ -6,7 +10,7 @@ const ordersInitialState = {
 
 const OrdersReducer = (state, action) => {
   switch(action.type){
-    case "order":
+    case ORDER_ITEM:
       const foodItem = action.payload
       const order = state.orders.find(curOrder => curOrder.foodItem.id === foodItem.id)
 
@@ -17,7 +21,7 @@ const OrdersReducer = (state, action) => {
         const newOrder = new Order(foodItem);
         return ({orders: [...state.orders, newOrder]});
       }
-    case "decrease":
+    case REMOVE_ITEM:
       const curItem = action.payload;
       if(curItem.amount > 1){
         curItem.decrement();

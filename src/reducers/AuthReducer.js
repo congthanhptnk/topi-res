@@ -1,4 +1,8 @@
 import firebase from 'firebase';
+import {
+  LOGIN_USER,
+  LOGOUT_USER
+} from './types'
 
 const authInitialState = {
   isLoggedIn: false
@@ -6,7 +10,7 @@ const authInitialState = {
 
 const AuthReducer = (state, action) => {
   switch(action.type){
-    case "sign-in":
+    case LOGIN_USER:
       return firebase.auth().signInAnonymously().then((x) => {
           console.log(x)
           return {isLoggedIn: true};
@@ -14,7 +18,7 @@ const AuthReducer = (state, action) => {
           console.log(err)
           return {isLoggedIn: false};
         });
-    case "sign-out":
+    case LOGOUT_USER:
       return null;
     default:
       return null;

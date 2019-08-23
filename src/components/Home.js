@@ -6,13 +6,13 @@ import OrderList from './OrderList';
 import Button from './reusable/Button';
 import styles from './Home.module.css';
 
-import FirebaseContext from '../context/FirebaseContext';
+import MenuContext from '../context/MenuContext';
+import { GET_MENU } from '../reducers/types';
+import { getMenu } from '../api/MenuApi';
 
 const Home = () => {
-  const {state, dispatch} = React.useContext(FirebaseContext);
 
   const onSignIn = () => {
-    dispatch({type: "sign-in", payload: "something"});
   }
 
   return(

@@ -1,11 +1,16 @@
+import { getMenu } from '../api';
+import {
+  GET_MENU
+} from './types';
+
 const menuInitialState = {
-  menu: {}
+  menu: []
 };
 
 const MenuReducer = (state, action) => {
   switch(action.type){
-    case "get-menu":
-      return null;
+    case GET_MENU:
+      return {menu: action.payload};
     default:
       return null;
   };

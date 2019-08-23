@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './OrderList.module.css';
 import OrdersContext from '../context/OrdersContext';
+import {
+  REMOVE_ITEM
+} from '../reducers/types';
 
 const OrderList = () => {
   const { state, dispatch } = React.useContext(OrdersContext);
@@ -16,7 +19,7 @@ const OrderList = () => {
   };
 
   const decreaseItem = (curOrder) => {
-    dispatch({type: "decrease", payload: curOrder});
+    dispatch({type: REMOVE_ITEM, payload: curOrder});
   };
 
   const updateOrderList = () => {
