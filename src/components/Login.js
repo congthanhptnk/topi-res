@@ -2,20 +2,24 @@ import React from 'react';
 import Button from './reusable/Button';
 
 const Login = () => {
+  const onLogin = (e) => {
+    e.preventDefault();
+    console.log("yeeeha");
+  }
 
   return (
-    <form method="post">
+    <form onSubmit={onLogin} method="post">
       <input
-        name="username"
-        placeholder="Username"
+        name="email"
+        placeholder="Email"
         defaultValue=""
-        type="text"
+        type="email"
       />
       <input
         name="password"
         placeholder="Password"
         type="password"
-        deafultValue=""
+        defaultValue=""
       />
       <Button
         type="submit"

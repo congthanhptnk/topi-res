@@ -1,4 +1,3 @@
-import { getMenu } from '../api';
 import {
   GET_MENU
 } from './types';
