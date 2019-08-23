@@ -6,10 +6,24 @@ import OrderList from './OrderList';
 import Button from './reusable/Button';
 import styles from './Home.module.css';
 
-const Home = () => {
+import AuthContext from '../context/AuthContext';
+import { logout } from '../api';
+import { withRouter } from 'react-router-dom';
 
-  const onSignIn = () => {
+const Home = (props) => {
+  const { state, dispatch } = React.useContext(AuthContext);
+
+  const onLogout = () => {
+    logout(value => {
+      dispatch(value);
+    });
   }
+
+  React.useEffect(() => {
+    if(!state.user){
+      props.history.push('/');
+    }
+  })
 
   return(
     <>
@@ -22,10 +36,10 @@ const Home = () => {
           <OrderList />
         </div>
       </div>
-      <Button type="submit" value="Add" text="Signin" onClick={onSignIn}/>
+      <Button type="submit" value="Add" text="Logout" onClick={onLogout}/>
       <Footer />
     </>
   );
 };
 
-export default Home;
+export default withRouter(Home);
