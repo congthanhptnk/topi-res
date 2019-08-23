@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
@@ -6,20 +6,23 @@ import OrderList from './OrderList';
 import Button from './reusable/Button';
 import styles from './Home.module.css';
 
-import { AuthContext } from '../context';
+import { AuthContext, OrdersContext } from '../context';
 import { logout } from '../api';
 import { withRouter } from 'react-router-dom';
+import { RESET } from '../reducers/types';
 
 const Home = (props) => {
-  const { state, dispatch } = React.useContext(AuthContext);
+  const { state, dispatch } = useContext(AuthContext);
+  const resetOrdersDispatch = useContext(OrdersContext).dispatch;
 
   const onLogout = () => {
     logout(value => {
       dispatch(value);
+      resetOrdersDispatch({type: RESET, payload: ''});
     });
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if(!state.user){
       props.history.push('/');
     }

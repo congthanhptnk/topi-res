@@ -1,7 +1,8 @@
 import Order from "../models/Order";
 import {
   ORDER_ITEM,
-  REMOVE_ITEM
+  REMOVE_ITEM,
+  RESET
 } from './types';
 
 const ordersInitialState = {
@@ -31,6 +32,8 @@ const OrdersReducer = (state, action) => {
         orders.splice(orders.indexOf(curItem), 1);
         return {orders: orders};
       }
+    case RESET:
+      return ordersInitialState;
     default:
       return ordersInitialState;
   }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './OrderList.module.css';
 import { OrdersContext } from '../context';
 import {
@@ -6,7 +6,7 @@ import {
 } from '../reducers/types';
 
 const OrderList = () => {
-  const { state, dispatch } = React.useContext(OrdersContext);
+  const { state, dispatch } = useContext(OrdersContext);
 
   const getOrderTotal = () => {
     if(state){

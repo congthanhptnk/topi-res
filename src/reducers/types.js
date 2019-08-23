@@ -11,3 +11,4 @@ export const GET_MENU = 'get_menu';
 
 export const ORDER_ITEM = 'order_item';
 export const REMOVE_ITEM = 'remove_item';
+export const RESET='reset';

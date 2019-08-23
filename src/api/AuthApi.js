@@ -39,7 +39,7 @@ export const signupUser = (email, password, cb) => {
     })
     .catch(err => {
       console.log('Failed ' + err);
-      const dispatch = {type: SIGNUP_USER_FAIL, payload: err};
+      const dispatch = {type: SIGNUP_USER_FAIL, payload: err.message};
       cb(dispatch)
     })
 }

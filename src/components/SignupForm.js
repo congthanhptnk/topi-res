@@ -1,4 +1,4 @@
-import React, { createRef, useContext, useEffect } from 'react';
+import React, { createRef, useContext } from 'react';
 import Button from './reusable/Button';
 import { AuthContext } from '../context';
 import { SIGNUP_USER_FAIL } from '../reducers/types';
