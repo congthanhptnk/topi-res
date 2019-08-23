@@ -5,6 +5,7 @@ import Login from '../Login';
 import styles from './App.module.css';
 import { MenuProvider } from '../../context/MenuContext';
 import { OrdersProvider } from '../../context/OrdersContext';
+import { AuthProvider } from '../../context/AuthContext';
 import FirebaseContext from '../../context/FirebaseContext';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
   });
 
   return (
+    <AuthProvider>
     <OrdersProvider>
       <MenuProvider>
         <main className={styles.layout}>
@@ -31,6 +33,7 @@ function App() {
         </main>
       </MenuProvider>
     </OrdersProvider>
+    </AuthProvider>
   );
 };
 

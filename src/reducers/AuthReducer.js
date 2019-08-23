@@ -1,6 +1,8 @@
 import {
-  LOGIN_USER,
-  LOGOUT_USER
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL,
+  EMAIL_CHANGED,
+  PASSWORD_CHANGED
 } from './types'
 
 const authInitialState = {
@@ -13,12 +15,16 @@ const authInitialState = {
 
 const AuthReducer = (state, action) => {
   switch(action.type){
-    case LOGIN_USER:
-      return null;
-    case LOGOUT_USER:
-      return null;
+    case LOGIN_USER_SUCCESS:
+      return {...state, ...authInitialState, user: action.payload};
+    case LOGIN_USER_FAIL:
+      return {...state, error: action.payload};
+    case EMAIL_CHANGED:
+      return {...state, email: action.payload};
+    case PASSWORD_CHANGED:
+      return {...state, pass: action.payload};
     default:
-      return null;
+      return authInitialState;
   };
 };
 
