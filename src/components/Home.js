@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
 import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
@@ -6,10 +6,27 @@ import OrderList from './OrderList';
 import Button from './reusable/Button';
 import styles from './Home.module.css';
 
-const Home = () => {
+import { AuthContext, OrdersContext } from '../context';
+import { logout } from '../api';
+import { withRouter } from 'react-router-dom';
+import { RESET } from '../reducers/types';
 
-  const onSignIn = () => {
+const Home = (props) => {
+  const { state, dispatch } = useContext(AuthContext);
+  const resetOrdersDispatch = useContext(OrdersContext).dispatch;
+
+  const onLogout = () => {
+    logout(value => {
+      dispatch(value);
+      resetOrdersDispatch({type: RESET, payload: ''});
+    });
   }
+
+  useEffect(() => {
+    if(!state.user){
+      props.history.push('/');
+    }
+  })
 
   return(
     <>
@@ -22,10 +39,10 @@ const Home = () => {
           <OrderList />
         </div>
       </div>
-      <Button type="submit" value="Add" text="Signin" onClick={onSignIn}/>
+      <Button type="submit" value="Add" text="Logout" onClick={onLogout}/>
       <Footer />
     </>
   );
 };
 
-export default Home;
+export default withRouter(Home);

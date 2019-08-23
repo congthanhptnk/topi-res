@@ -1,5 +1,5 @@
 import React from 'react';
-import MenuReducer, { menuInitialState } from '../reducers/MenuReducer';
+import {MenuReducer, menuInitialState } from '../reducers';
 
 const MenuContext = React.createContext();
 
@@ -11,5 +11,4 @@ const MenuProvider = (props) => {
 }
 
 const MenuConsumer = MenuContext.Consumer;
-export {MenuProvider, MenuConsumer};
-export default MenuContext;
+export {MenuProvider, MenuConsumer, MenuContext};

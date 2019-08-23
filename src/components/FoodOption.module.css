@@ -7,6 +7,7 @@
   padding: 1rem;
   background-color: var(--light-color);
   border-radius: 0.5rem;
+  border-color: var(--secondary-color);
 }
 
 .textContainer{

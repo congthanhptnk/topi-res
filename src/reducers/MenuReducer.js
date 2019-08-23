@@ -1,4 +1,3 @@
-import { getMenu } from '../api';
 import {
   GET_MENU
 } from './types';
@@ -16,5 +15,4 @@ const MenuReducer = (state, action) => {
   };
 };
 
-export { menuInitialState };
-export default MenuReducer;
+export { menuInitialState, MenuReducer };

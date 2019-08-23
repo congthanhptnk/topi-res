@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './assets/index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
-import { FirebaseProvider } from './context/FirebaseContext';
+import { FirebaseProvider, AuthProvider } from './context';
 
 ReactDOM.render(
   <FirebaseProvider>
-    <App />
+    <AuthProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+    </AuthProvider>
   </FirebaseProvider>
   ,
   document.getElementById('root'));

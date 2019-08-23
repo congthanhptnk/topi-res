@@ -1,29 +1,40 @@
-import firebase from 'firebase';
 import {
-  LOGIN_USER,
-  LOGOUT_USER
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL,
+  EMAIL_CHANGED,
+  PASSWORD_CHANGED,
+  LOGOUT_USER,
+  SIGNUP_USER_FAIL,
+  SIGNUP_USER_SUCCESS
 } from './types'
 
 const authInitialState = {
-  isLoggedIn: false
+  email: '',
+  password: '',
+  user: null,
+  error: '',
+  loading: false
 };
 
 const AuthReducer = (state, action) => {
   switch(action.type){
-    case LOGIN_USER:
-      return firebase.auth().signInAnonymously().then((x) => {
-          console.log(x)
-          return {isLoggedIn: true};
-        }).catch((err) => {
-          console.log(err)
-          return {isLoggedIn: false};
-        });
+    case LOGIN_USER_SUCCESS:
+      return {...state, ...authInitialState, user: action.payload};
+    case LOGIN_USER_FAIL:
+      return {...state, ...authInitialState, error: action.payload};
+    case EMAIL_CHANGED:
+      return {...state, email: action.payload};
+    case PASSWORD_CHANGED:
+      return {...state, pass: action.payload};
     case LOGOUT_USER:
-      return null;
+      return authInitialState;
+    case SIGNUP_USER_FAIL:
+      return {...state, error: action.payload};
+    case SIGNUP_USER_SUCCESS:
+      return {...state, ...authInitialState, user: action.payload};
     default:
-      return null;
+      return authInitialState;
   };
 };
 
-export { authInitialState };
-export default AuthReducer;
+export { authInitialState, AuthReducer };

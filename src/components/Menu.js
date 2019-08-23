@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import styles from './Menu.module.css';
 import placeholder from '../assets/icons/placeholderMenu.svg';
 import FoodOption from './FoodOption';
-import MenuContext from '../context/MenuContext';
+import { MenuContext } from '../context';
 import { getMenu } from '../api';
 import {
   GET_MENU
@@ -15,7 +15,7 @@ const Menu = () => {
     getMenu(menu => {
       dispatch({type: GET_MENU, payload: menu});
     })
-  }, []);
+  }, [dispatch]);
 
   const renderMenu = () => {
     if(state.menu.length > 0) {
