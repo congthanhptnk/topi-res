@@ -1,6 +1,5 @@
 import React from 'react';
 import firebase from 'firebase/app';
-import FirebaseReducer, { authInitialState } from '../reducers/AuthReducer';
 
 const FirebaseContext = React.createContext();
 

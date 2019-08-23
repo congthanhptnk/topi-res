@@ -6,10 +6,6 @@ import OrderList from './OrderList';
 import Button from './reusable/Button';
 import styles from './Home.module.css';
 
-import MenuContext from '../context/MenuContext';
-import { GET_MENU } from '../reducers/types';
-import { getMenu } from '../api/MenuApi';
-
 const Home = () => {
 
   const onSignIn = () => {

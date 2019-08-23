@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import firebase from 'firebase/app';
 import Home from '../Home';
 import styles from './App.module.css';
 import { MenuProvider } from '../../context/MenuContext';

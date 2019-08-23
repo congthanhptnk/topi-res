@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
-import FoodOption from './FoodOption';
-import FoodItem from '../models/FoodItem';
 import styles from './Menu.module.css';
+import placeholder from '../assets/icons/placeholderMenu.svg';
+import FoodOption from './FoodOption';
 import MenuContext from '../context/MenuContext';
 import { getMenu } from '../api';
 import {
@@ -18,14 +18,18 @@ const Menu = () => {
   }, []);
 
   const renderMenu = () => {
-    return state.menu.map(foodItem => {
-      return(
-        <FoodOption
-          key={foodItem.key}
-          foodItem={foodItem}
-        />
-      );
-    });
+    if(state.menu.length > 0) {
+      return state.menu.map(foodItem => {
+        return(
+          <FoodOption
+            key={foodItem.key}
+            foodItem={foodItem}
+          />
+        );
+      });
+    } else {
+      return (<img src={placeholder} alt="Menu" />);
+    }
   };
 
   return(

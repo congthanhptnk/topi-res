@@ -45,6 +45,8 @@ const OrderList = () => {
 
   return (
     <div>
+    {state.orders.length > 0 ? (
+      <>
       <ul className={styles.orderContainer}>
         {updateOrderList()}
       </ul>
@@ -52,6 +54,8 @@ const OrderList = () => {
         <p className={styles.total}>Total price</p>
         <p className={styles.total}>&euro; {getOrderTotal()}</p>
       </div>
+      </>
+    ) : (<p>something</p>)}
     </div>
   );
 };
