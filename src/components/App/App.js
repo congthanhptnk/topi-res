@@ -34,8 +34,8 @@ function App() {
       <UserOrdersProvider>
         <main className={styles.layout}>
           <Switch>
-            <PrivateRoute path='/home' component={Home} />
-            <PrivateRoute path='/history' component={History} />
+            <PrivateRoute path='/history' component={Home} />
+            <PrivateRoute path='/home' component={History} />
             <Route path='/' component={Login} />
           </Switch>
         </main>

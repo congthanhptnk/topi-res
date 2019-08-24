@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--secondary-color);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2rem;
+}
+
+.boxHeaderContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+
+.listItemContainer{
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+}
+
+.listText{
+  composes: paragraphs from '../assets/typo.module.css';
+  font-size: 1.2rem;
+}
+
+.name{
+  composes: listText;
+  flex: 2;
+  padding-left: 2rem;
+}
+
+.amount{
+  composes: listText;
+  margin-right: 2rem;
+}
+
+.headerText{
+  composes: titleMini from "../assets/typo.module.css";
+  margin: 1.5rem 1.5rem 1.5rem;
+}
