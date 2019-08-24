@@ -1,23 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
-import Button from './reusable/Button';
+import SinglePastOrder from './SinglePastOrder';
 import { getUserOrder } from '../api';
 import { UserOrdersContext } from '../context';
 
 const History = () => {
-  const { dispatch } = useContext(UserOrdersContext);
+  const { state, dispatch } = useContext(UserOrdersContext);
 
-  const onHistory = () => {
+  useEffect(() => {
     getUserOrder((action) => {
       dispatch(action);
+    })
+  },[dispatch])
+
+  const renderHistory = () => {
+    const { userOrders } = state;
+    return userOrders.map(item => {
+      return(
+        <SinglePastOrder key={item.key} item={item}/>
+      )
     })
   }
 
   return(
     <>
       <Header />
-      <Button type='submit' name='history' text='GET HISTORY' onClick={onHistory} />
+      {(state.userOrders.length > 0 ) ? (
+        <>
+          {renderHistory()}
+        </>
+      ) : (
+        <p>Nothing to see here </p>
+      )}
       <Footer />
     </>
   );

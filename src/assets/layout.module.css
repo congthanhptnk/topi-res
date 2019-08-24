@@ -8,6 +8,7 @@
   background: var(--ultralight-color);
   border-radius: 0 0 .7rem .7rem;
   min-height: 100%;
+  padding-bottom: 5rem;
 }
 .contentNoSpace {
   padding: 0;

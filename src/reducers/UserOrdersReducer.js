@@ -1,4 +1,3 @@
-
 import {
   GET_ORDER_SUCCESS,
   GET_ORDER_FAIL,
@@ -6,8 +5,8 @@ import {
 } from './types';
 
 const userOrdersInitState = {
-  userOrders:[]
-}
+  userOrders: []
+};
 
 const UserOrdersReducer = (state, action) => {
   switch(action.type) {

@@ -32,7 +32,8 @@ const convertSnapToOrders = (snap) => {
   let ordersArr = []
   snap.forEach(item => {
     const { orders, time, total } = item.val();
-    const aOrder = new UserOrders(orders, time, total);
+    let aOrder = new UserOrders(orders, time, total);
+    aOrder.key = item.key
     ordersArr.push(aOrder);
   })
   return ordersArr;
