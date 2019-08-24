@@ -15,6 +15,10 @@ class Order {
   get total() {
     return this.amount * this.foodItem.price;
   }
+
+  get object() {
+    return {amount: this.amount, foodItem: this.foodItem};
+  }
 }
 
 export default Order;

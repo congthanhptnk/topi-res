@@ -12,3 +12,7 @@ export const GET_MENU = 'get_menu';
 export const ORDER_ITEM = 'order_item';
 export const REMOVE_ITEM = 'remove_item';
 export const RESET='reset';
+
+export const POST_ORDER_SUCCESS = 'post_order_success';
+export const GET_ORDER_SUCCESS = 'get_order_success';
+export const GET_ORDER_FAIL = 'get_order_fail';
