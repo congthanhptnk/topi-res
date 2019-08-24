@@ -26,7 +26,7 @@ const History = () => {
 
   return(
     <>
-      <Header />
+      <Header title='Topi'/>
       <div className={styles.mainBody}>
       {(state.userOrders.length > 0 ) ? (
         <>
