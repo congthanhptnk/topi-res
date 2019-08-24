@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Redirect } from 'react-router-dom';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import { AuthContext } from '../context';
@@ -7,14 +7,20 @@ import { AuthContext } from '../context';
 const Login = (props) => {
   const { user } = useContext(AuthContext).state;
 
-  useEffect(() => {
-    if(user) { props.history.push('/home') }
-  })
+  // useEffect(() => {
+  //   if(user) { props.history.push('/home') }
+  // })
 
   return (
     <>
-      <LoginForm />
-      <SignupForm />
+    {(user!=null) ? (
+      <Redirect to='/home' />
+    ) : (
+      <>
+        <LoginForm/>
+        <SignupForm/>
+      </>
+    )};
     </>
   )
 };

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styles from './OrderList.module.css';
+import Button from './reusable/Button';
 import { OrdersContext } from '../context';
 import {
   REMOVE_ITEM
@@ -54,6 +55,7 @@ const OrderList = () => {
         <p className={styles.total}>Total price</p>
         <p className={styles.total}>&euro; {getOrderTotal()}</p>
       </div>
+      <Button type='submit' name='Order' text='Checkout' />
       </>
     ) : (<p>something</p>)}
     </div>

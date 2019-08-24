@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
@@ -21,16 +22,18 @@ const Home = (props) => {
       resetOrdersDispatch({type: RESET, payload: ''});
     });
   }
-
-  useEffect(() => {
-    if(!state.user){
-      props.history.push('/');
-    }
-  })
+  //
+  // useEffect(() => {
+  //   if(!state.user){
+  //     props.history.push('/');
+  //   }
+  // })
 
   return(
     <>
-      <Header title="Topi"/>
+      <Header title="Topi">
+        <Link to='/history'>History</Link>
+      </Header>
       <div className={styles.mainBody}>
         <Menu />
         <div className={styles.divider}/>

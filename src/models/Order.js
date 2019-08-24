@@ -1,4 +1,3 @@
-
 class Order {
   constructor(foodItem) {
     this.amount = 1;
