@@ -1,3 +1,4 @@
+
 import {
   GET_ORDER_SUCCESS,
   GET_ORDER_FAIL,
@@ -10,12 +11,12 @@ const userOrdersInitState = {
 
 const UserOrdersReducer = (state, action) => {
   switch(action.type) {
-    case "POST_ORDER_SUCCESS":
+    case POST_ORDER_SUCCESS:
       return userOrdersInitState;
-    case "GET_ORDER_FAIL":
-      return null;
-    case "GET_ORDER_SUCCESS":
-      return null;
+    case GET_ORDER_FAIL:
+      return userOrdersInitState;
+    case GET_ORDER_SUCCESS:
+      return {userOrders: action.payload};
     default:
       return userOrdersInitState;
   }

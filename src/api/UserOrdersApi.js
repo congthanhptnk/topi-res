@@ -1,16 +1,39 @@
 import firebase from 'firebase/app';
+import UserOrders from '../models/UserOrders';
 import {
-  POST_ORDER_SUCCESS
+  GET_ORDER_SUCCESS,
+  GET_ORDER_FAIL
 } from "../reducers/types";
 
 export const postUserOrder = (orders, total, cb) => {
   const { currentUser } = firebase.auth();
-  const time = new Date();
+  //const time = new Date();
 
   firebase.database().ref(`/users/${currentUser.uid}/history`)
-    .push({orders: orders, time: time, total: total})
-    .then((x) => {
-      console.log("Check please " + x);
+    .push({orders: orders, time: 123, total: total})
+    .then((val) => {
+      console.log("Check please " + val);
       cb();
     })
+};
+
+export const getUserOrder = (cb) => {
+  const { currentUser } = firebase.auth();
+
+  firebase.database().ref(`/users/${currentUser.uid}/history`)
+    .on('value', snapshot => {
+      cb({type: GET_ORDER_SUCCESS, payload: convertSnapToOrders(snapshot)});
+    }, err => {
+      cb({type: GET_ORDER_FAIL, payload: err });
+    })
+}
+
+const convertSnapToOrders = (snap) => {
+  let ordersArr = []
+  snap.forEach(item => {
+    const { orders, time, total } = item.val();
+    const aOrder = new UserOrders(orders, time, total);
+    ordersArr.push(aOrder);
+  })
+  return ordersArr;
 }

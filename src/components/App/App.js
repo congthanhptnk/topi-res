@@ -9,7 +9,8 @@ import {
   MenuProvider,
   OrdersProvider,
   AuthContext,
-  FirebaseContext
+  FirebaseContext,
+  UserOrdersProvider
 } from '../../context';
 import { LOGIN_USER_SUCCESS } from '../../reducers/types';
 
@@ -30,14 +31,15 @@ function App() {
   return (
     <OrdersProvider>
       <MenuProvider>
+      <UserOrdersProvider>
         <main className={styles.layout}>
           <Switch>
             <PrivateRoute path='/home' component={Home} />
-            //<Route exact path='/home' component={Home} />
             <PrivateRoute path='/history' component={History} />
             <Route path='/' component={Login} />
           </Switch>
         </main>
+      </UserOrdersProvider>
       </MenuProvider>
     </OrdersProvider>
   );
