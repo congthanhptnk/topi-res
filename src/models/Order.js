@@ -1,4 +1,3 @@
-
 class Order {
   constructor(foodItem) {
     this.amount = 1;
@@ -15,6 +14,10 @@ class Order {
 
   get total() {
     return this.amount * this.foodItem.price;
+  }
+
+  get object() {
+    return {amount: this.amount, foodItem: this.foodItem};
   }
 }
 

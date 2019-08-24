@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 import styles from './OrderList.module.css';
+import Button from './reusable/Button';
+import { postUserOrder } from '../api';
 import { OrdersContext } from '../context';
 import {
-  REMOVE_ITEM
+  REMOVE_ITEM,
+  RESET
 } from '../reducers/types';
 
 const OrderList = () => {
@@ -17,6 +20,15 @@ const OrderList = () => {
       return 0;
     }
   };
+
+  const checkOut = () => {
+    const finalOrder = state.orders.map(curOrder => {
+      return curOrder.object
+    })
+    postUserOrder(finalOrder, getOrderTotal(), () => {
+      dispatch({type: RESET, payload: null});
+    });
+  }
 
   const decreaseItem = (curOrder) => {
     dispatch({type: REMOVE_ITEM, payload: curOrder});
@@ -54,6 +66,7 @@ const OrderList = () => {
         <p className={styles.total}>Total price</p>
         <p className={styles.total}>&euro; {getOrderTotal()}</p>
       </div>
+      <Button type='submit' name='Order' text='Checkout' onClick={checkOut} />
       </>
     ) : (<p>something</p>)}
     </div>

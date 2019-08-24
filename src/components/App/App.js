@@ -2,12 +2,15 @@ import React, { useEffect, useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from '../Home';
 import Login from '../Login';
+import History from '../History';
+import PrivateRoute from '../PrivateRoute';
 import styles from './App.module.css';
 import {
   MenuProvider,
   OrdersProvider,
   AuthContext,
-  FirebaseContext
+  FirebaseContext,
+  UserOrdersProvider
 } from '../../context';
 import { LOGIN_USER_SUCCESS } from '../../reducers/types';
 
@@ -28,12 +31,15 @@ function App() {
   return (
     <OrdersProvider>
       <MenuProvider>
+      <UserOrdersProvider>
         <main className={styles.layout}>
           <Switch>
-            <Route exact path='/home' component={Home} />
-            <Route exact path='/' component={Login} />
+            <PrivateRoute path='/home' component={Home} />
+            <PrivateRoute path='/history' component={History} />
+            <Route path='/' component={Login} />
           </Switch>
         </main>
+      </UserOrdersProvider>
       </MenuProvider>
     </OrdersProvider>
   );

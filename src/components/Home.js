@@ -1,4 +1,5 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
@@ -12,7 +13,7 @@ import { withRouter } from 'react-router-dom';
 import { RESET } from '../reducers/types';
 
 const Home = (props) => {
-  const { state, dispatch } = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
   const resetOrdersDispatch = useContext(OrdersContext).dispatch;
 
   const onLogout = () => {
@@ -22,15 +23,11 @@ const Home = (props) => {
     });
   }
 
-  useEffect(() => {
-    if(!state.user){
-      props.history.push('/');
-    }
-  })
-
   return(
-    <>
-      <Header title="Topi"/>
+    <div>
+      <Header title="Topi">
+        <Link to='/history'>History</Link>
+      </Header>
       <div className={styles.mainBody}>
         <Menu />
         <div className={styles.divider}/>
@@ -41,7 +38,7 @@ const Home = (props) => {
       </div>
       <Button type="submit" value="Add" text="Logout" onClick={onLogout}/>
       <Footer />
-    </>
+    </div>
   );
 };
 
