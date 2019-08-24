@@ -1,4 +1,6 @@
 import React, { createRef, useContext } from 'react';
+import Form from 'react-bootstrap/Form';
+import styles from './LoginForm.module.css';
 import Button from './reusable/Button';
 import { loginUser } from '../api';
 import { AuthContext } from '../context';
@@ -21,35 +23,29 @@ const LoginForm = () => {
   }
 
   const renderError = () => {
-    if(error) { return <p>{error}</p> };
+    if(error) { return <Form.Label>{error}</Form.Label> };
   }
 
   return(
-    <>
-      <form method="post">
-        <input
-          name="email"
-          placeholder="Email"
-          defaultValue=""
-          ref={emailRef}
-          type="email"
-        />
-        <input
-          name="password"
-          placeholder="Password"
-          type="password"
-          ref={passRef}
-          defaultValue=""
-        />
-        <Button
-          type="submit"
-          value="login"
-          text="Login"
-          onClick={onLogin}
-        />
-      </form>
-      {renderError()}
-    </>
+    <div>
+      <Form className={styles.container}>
+        <h1 className={styles.loginTitle}> Sign In </h1>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" ref={emailRef}/>
+          <Form.Text className="text-muted">
+            Email must contain 6 characters
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" ref={passRef}/>
+        </Form.Group>
+        {renderError()}
+        <Button type="submit" text="Login" onClick={onLogin}/>
+      </Form>
+    </div>
   )
 }
 

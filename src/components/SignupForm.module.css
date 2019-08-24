@@ -1,0 +1,14 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 2px solid var(--primary-color);
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+.signupTitle{
+  composes: title from '../assets/typo.module.css';
+  align-self: center;
+  padding-bottom: 2rem;
+}

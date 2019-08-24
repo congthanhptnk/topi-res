@@ -1,4 +1,6 @@
 import React, { createRef, useContext } from 'react';
+import Form from 'react-bootstrap/Form';
+import styles from './SignupForm.module.css';
 import Button from './reusable/Button';
 import { AuthContext } from '../context';
 import { SIGNUP_USER_FAIL } from '../reducers/types';
@@ -27,35 +29,30 @@ const SignupForm = (props) => {
   }
 
   return(
-    <form method="post">
-      <input
-        name="email"
-        placeholder="Email"
-        defaultValue=""
-        ref={emailRef}
-        type="email"
-      />
-      <input
-        name="password"
-        placeholder="Password"
-        type="password"
-        ref={pass1Ref}
-        defaultValue=""
-      />
-      <input
-        name="password"
-        placeholder="Password"
-        type="password"
-        ref={pass2Ref}
-        defaultValue=""
-      />
-      <Button
-        type="submit"
-        value="register"
-        text="Register"
-        onClick={onRegister}
-      />
-    </form>
+    <div>
+      <Form className={styles.container}>
+        <h1 className={styles.signupTitle}> Sign Up </h1>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" ref={emailRef}/>
+          <Form.Text className="text-muted">
+            Email must contain 6 characters
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" ref={pass1Ref}/>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Please re-enter your password</Form.Label>
+          <Form.Control type="password" placeholder="Password" ref={pass2Ref}/>
+        </Form.Group>
+
+        <Button type="submit" text="Sign Up" onClick={onRegister}/>
+      </Form>
+    </div>
   );
 };
 
