@@ -4,6 +4,7 @@ import Footer from './reusable/Footer';
 import SinglePastOrder from './SinglePastOrder';
 import { getUserOrder } from '../api';
 import { UserOrdersContext } from '../context';
+import styles from './History.module.css';
 
 const History = () => {
   const { state, dispatch } = useContext(UserOrdersContext);
@@ -26,13 +27,15 @@ const History = () => {
   return(
     <>
       <Header />
+      <div className={styles.mainBody}>
       {(state.userOrders.length > 0 ) ? (
         <>
           {renderHistory()}
         </>
       ) : (
-        <p>Nothing to see here </p>
+        <p>Nothing to see here s</p>
       )}
+      </div>
       <Footer />
     </>
   );

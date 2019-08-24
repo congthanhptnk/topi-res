@@ -1,0 +1,5 @@
+.mainBody{
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+}

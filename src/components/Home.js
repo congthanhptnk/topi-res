@@ -24,7 +24,7 @@ const Home = (props) => {
   }
 
   return(
-    <>
+    <div>
       <Header title="Topi">
         <Link to='/history'>History</Link>
       </Header>
@@ -38,7 +38,7 @@ const Home = (props) => {
       </div>
       <Button type="submit" value="Add" text="Logout" onClick={onLogout}/>
       <Footer />
-    </>
+    </div>
   );
 };
 
