@@ -25,13 +25,17 @@ const Home = (props) => {
     });
   }
 
+  const onDisplayHistory = () => {
+    props.history.push('/history');
+  }
+
   return(
     <div>
       <Header title="Topi">
-        <DropdownButton id="dropdown-basic-button" title="">
-          <Dropdown.Item>
-            <Link to='/history' >History</Link>
-          </Dropdown.Item>
+        <DropdownButton id="dropdown-basic-button" title="User" size="sm" alignRight>
+          <Dropdown.Item onClick={onDisplayHistory}>History</Dropdown.Item>
+          <Dropdown.Divider />
+          <Dropdown.Item onClick={onLogout}>Sign Out</Dropdown.Item>
         </DropdownButton>
       </Header>
       <div className={styles.mainBody}>
@@ -42,7 +46,6 @@ const Home = (props) => {
           <OrderList />
         </div>
       </div>
-      <Button type="submit" value="Add" text="Logout" onClick={onLogout}/>
       <Footer />
     </div>
   );
