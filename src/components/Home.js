@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from './Menu';
 import Header from './reusable/Header';
@@ -13,7 +13,7 @@ import { withRouter } from 'react-router-dom';
 import { RESET } from '../reducers/types';
 
 const Home = (props) => {
-  const { state, dispatch } = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
   const resetOrdersDispatch = useContext(OrdersContext).dispatch;
 
   const onLogout = () => {
@@ -22,12 +22,6 @@ const Home = (props) => {
       resetOrdersDispatch({type: RESET, payload: ''});
     });
   }
-  //
-  // useEffect(() => {
-  //   if(!state.user){
-  //     props.history.push('/');
-  //   }
-  // })
 
   return(
     <>
