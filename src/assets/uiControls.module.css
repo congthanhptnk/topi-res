@@ -12,4 +12,5 @@
 .button:active {
   color: #fff;
   background-color: var(--dark-color);
+  outline: none;
 }

@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
@@ -26,7 +28,11 @@ const Home = (props) => {
   return(
     <div>
       <Header title="Topi">
-        <Link to='/history'>History</Link>
+        <DropdownButton id="dropdown-basic-button" title="">
+          <Dropdown.Item>
+            <Link to='/history' >History</Link>
+          </Dropdown.Item>
+        </DropdownButton>
       </Header>
       <div className={styles.mainBody}>
         <Menu />
