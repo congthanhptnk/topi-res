@@ -7,23 +7,24 @@ import { AuthContext } from '../context';
 
 const LoginForm = () => {
   const { state, dispatch } = useContext(AuthContext);
-  const { error } = state;
+  const { loginError } = state;
 
   const emailRef = createRef();
   const passRef = createRef();
 
   const onLogin = e => {
     e.preventDefault();
-
     if(emailRef.current.value && passRef.current.value) {
       loginUser(emailRef.current.value, passRef.current.value, (action) => {
         dispatch(action);
       });
     }
+    emailRef.current.value = ``;
+    passRef.current.value = ``;
   }
 
-  const renderError = () => {
-    if(error) { return <Form.Label>{error}</Form.Label> };
+  const renderLoginError = () => {
+    if(loginError) { return <Form.Label className={styles.error}>{loginError}</Form.Label> };
   }
 
   return(
@@ -42,6 +43,7 @@ const LoginForm = () => {
           <Form.Label className={styles.label}>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" ref={passRef}/>
         </Form.Group>
+        {renderLoginError()}
         <Button style={{fontWeight: 'bold'}} type="submit" text="Login" onClick={onLogin}/>
       </Form>
     </div>

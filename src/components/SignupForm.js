@@ -8,6 +8,7 @@ import { signupUser } from '../api';
 
 const SignupForm = (props) => {
   const { state, dispatch } = useContext(AuthContext);
+  const { signupError } = state;
 
   const emailRef = createRef();
   const pass1Ref = createRef();
@@ -26,6 +27,14 @@ const SignupForm = (props) => {
         dispatch({type: SIGNUP_USER_FAIL, payload: "Unmatched password"});
       }
     }
+
+    emailRef.current.value = ``;
+    pass1Ref.current.value = ``;
+    pass2Ref.current.value = ``;
+  }
+
+  const renderSignupError = () => {
+    if(signupError) { return <Form.Label className={styles.error}>{signupError}</Form.Label> };
   }
 
   return(
@@ -49,7 +58,7 @@ const SignupForm = (props) => {
           <Form.Label className={styles.label}>Please re-enter your password</Form.Label>
           <Form.Control type="password" placeholder="Password" ref={pass2Ref}/>
         </Form.Group>
-
+        {renderSignupError()}
         <Button style={{fontWeight: 'bold'}} type="submit" text="Sign Up" onClick={onRegister}/>
       </Form>
     </div>
