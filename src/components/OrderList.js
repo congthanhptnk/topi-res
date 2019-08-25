@@ -2,11 +2,9 @@ import React, { useContext, useState } from 'react';
 import styles from './OrderList.module.css';
 import Button from './reusable/Button';
 import ConfirmCheckout from './ConfirmCheckout';
-import { postUserOrder } from '../api';
 import { OrdersContext } from '../context';
 import {
-  REMOVE_ITEM,
-  RESET
+  REMOVE_ITEM
 } from '../reducers/types';
 
 const OrderList = () => {
