@@ -66,7 +66,9 @@ const OrderList = () => {
         <p className={styles.total}>Total price</p>
         <p className={styles.total}>&euro; {getOrderTotal()}</p>
       </div>
-      <Button type='submit' name='Order' text='Checkout' onClick={checkOut} />
+      <div className={styles.checkoutButton}>
+        <Button type='submit' name='Order' text='Checkout' onClick={checkOut} style={{width: "inherit"}} />
+      </div>
       </>
     ) : (
       <p className={styles.placeholderText}>Choose an item on the menu</p>
