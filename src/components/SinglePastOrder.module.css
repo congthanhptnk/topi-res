@@ -1,6 +1,8 @@
 .container {
+  align-self: center;
   display: flex;
   flex-direction: column;
+  width: 50%;
   border: 2px solid var(--secondary-color);
   border-radius: 1rem;
   overflow: hidden;

@@ -22,15 +22,6 @@ const OrderList = () => {
       return 0;
     }
   };
-
-  // const checkOut = () => {
-  //   const finalOrder = state.orders.map(curOrder => {
-  //     return curOrder.object
-  //   })
-  //   postUserOrder(finalOrder, getOrderTotal(), () => {
-  //     dispatch({type: RESET, payload: null});
-  //   });
-  // }
   const checkOut = () => {
     setShowConfirm(true);
   }
