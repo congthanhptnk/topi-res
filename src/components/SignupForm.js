@@ -33,7 +33,7 @@ const SignupForm = (props) => {
       <Form className={styles.container}>
         <h1 className={styles.signupTitle}> Sign Up </h1>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className={styles.label}>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" ref={emailRef}/>
           <Form.Text className="text-muted">
             Email must contain 6 characters
@@ -41,16 +41,16 @@ const SignupForm = (props) => {
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className={styles.label}>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" ref={pass1Ref}/>
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Please re-enter your password</Form.Label>
+          <Form.Label className={styles.label}>Please re-enter your password</Form.Label>
           <Form.Control type="password" placeholder="Password" ref={pass2Ref}/>
         </Form.Group>
 
-        <Button type="submit" text="Sign Up" onClick={onRegister}/>
+        <Button style={{fontWeight: 'bold'}} type="submit" text="Sign Up" onClick={onRegister}/>
       </Form>
     </div>
   );

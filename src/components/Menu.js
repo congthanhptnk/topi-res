@@ -28,7 +28,12 @@ const Menu = () => {
         );
       });
     } else {
-      return (<img src={placeholder} alt="Menu" />);
+      return (
+        <div className={styles.placeholderContainer}>
+          <img src={placeholder} className={styles.placeholderImg} alt="Menu" />
+          <p className={styles.placeholderText}>Loading menu</p>
+        </div>
+      );
     }
   };
 

@@ -68,7 +68,9 @@ const OrderList = () => {
       </div>
       <Button type='submit' name='Order' text='Checkout' onClick={checkOut} />
       </>
-    ) : (<p>something</p>)}
+    ) : (
+      <p className={styles.placeholderText}>Choose an item on the menu</p>
+    )}
     </div>
   );
 };

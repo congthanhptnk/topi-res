@@ -5,7 +5,6 @@ import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
 import OrderList from './OrderList';
-import Button from './reusable/Button';
 import styles from './Home.module.css';
 
 import { AuthContext, OrdersContext } from '../context';

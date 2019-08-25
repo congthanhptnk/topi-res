@@ -31,7 +31,7 @@ const LoginForm = () => {
       <Form className={styles.container}>
         <h1 className={styles.loginTitle}> Sign In </h1>
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className={styles.label}>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" ref={emailRef}/>
           <Form.Text className="text-muted">
             Email must contain 6 characters
@@ -39,11 +39,10 @@ const LoginForm = () => {
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className={styles.label}>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" ref={passRef}/>
         </Form.Group>
-        {renderError()}
-        <Button type="submit" text="Login" onClick={onLogin}/>
+        <Button style={{fontWeight: 'bold'}} type="submit" text="Login" onClick={onLogin}/>
       </Form>
     </div>
   )

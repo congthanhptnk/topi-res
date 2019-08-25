@@ -12,3 +12,9 @@
   align-self: center;
   padding-bottom: 2rem;
 }
+
+.label{
+  padding-bottom: 0.2rem;
+  color: var(--secondary-color);
+  font-weight: bolder;
+}
