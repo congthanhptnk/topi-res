@@ -1,13 +1,12 @@
 .container{
   display: flex;
   align-items: center;
-  border: 2px solid black;
+  border: 2px solid var(--secondary-color);
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
   background-color: var(--light-color);
   border-radius: 0.5rem;
-  border-color: var(--secondary-color);
 }
 
 .textContainer{

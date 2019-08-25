@@ -7,10 +7,9 @@ import {
 
 export const postUserOrder = (orders, total, cb) => {
   const { currentUser } = firebase.auth();
-  //const time = new Date();
 
   firebase.database().ref(`/users/${currentUser.uid}/history`)
-    .push({orders: orders, time: 123, total: total})
+    .push({orders: orders, time: curDate(), total: total})
     .then((val) => {
       console.log("Check please " + val);
       cb();
@@ -37,4 +36,13 @@ const convertSnapToOrders = (snap) => {
     ordersArr.push(aOrder);
   })
   return ordersArr;
+}
+
+const curDate = () => {
+  var date = new Date().getDate();
+  var month = new Date().getMonth() + 1;
+  var year = new Date().getFullYear();
+
+  const curTime = `${date}/${month}/${year}`;
+  return curTime;
 }

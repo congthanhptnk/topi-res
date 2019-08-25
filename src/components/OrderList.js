@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import styles from './OrderList.module.css';
 import Button from './reusable/Button';
-import { postUserOrder } from '../api';
+import ConfirmCheckout from './ConfirmCheckout';
 import { OrdersContext } from '../context';
 import {
-  REMOVE_ITEM,
-  RESET
+  REMOVE_ITEM
 } from '../reducers/types';
 
 const OrderList = () => {
   const { state, dispatch } = useContext(OrdersContext);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   const getOrderTotal = () => {
     if(state){
@@ -20,14 +20,8 @@ const OrderList = () => {
       return 0;
     }
   };
-
   const checkOut = () => {
-    const finalOrder = state.orders.map(curOrder => {
-      return curOrder.object
-    })
-    postUserOrder(finalOrder, getOrderTotal(), () => {
-      dispatch({type: RESET, payload: null});
-    });
+    setShowConfirm(true);
   }
 
   const decreaseItem = (curOrder) => {
@@ -66,9 +60,17 @@ const OrderList = () => {
         <p className={styles.total}>Total price</p>
         <p className={styles.total}>&euro; {getOrderTotal()}</p>
       </div>
-      <Button type='submit' name='Order' text='Checkout' onClick={checkOut} />
+      <div className={styles.checkoutButton}>
+        <Button type='submit' name='Order' text='Checkout' onClick={checkOut} style={{width: "inherit"}} />
+      </div>
+      <ConfirmCheckout
+        show={showConfirm}
+        onHide={() => setShowConfirm(false)}
+      />
       </>
-    ) : (<p>something</p>)}
+    ) : (
+      <p className={styles.placeholderText}>Choose an item on the menu</p>
+    )}
     </div>
   );
 };

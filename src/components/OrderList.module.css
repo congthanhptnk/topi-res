@@ -48,3 +48,18 @@
   outline: none;
   cursor: pointer;
 }
+
+.placeholderText{
+  composes: paragraphs from "../assets/typo.module.css";
+  font-size: 1.5rem;
+  width: inherit;
+  text-align: center;
+  margin-top: 10rem;
+  color: gray;
+}
+
+.checkoutButton{
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}

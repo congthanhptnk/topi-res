@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
 import Menu from './Menu';
 import Header from './reusable/Header';
 import Footer from './reusable/Footer';
 import OrderList from './OrderList';
-import Button from './reusable/Button';
 import styles from './Home.module.css';
 
 import { AuthContext, OrdersContext } from '../context';
@@ -13,7 +12,7 @@ import { withRouter } from 'react-router-dom';
 import { RESET } from '../reducers/types';
 
 const Home = (props) => {
-  const { dispatch } = useContext(AuthContext);
+  const { state, dispatch } = useContext(AuthContext);
   const resetOrdersDispatch = useContext(OrdersContext).dispatch;
 
   const onLogout = () => {
@@ -23,10 +22,28 @@ const Home = (props) => {
     });
   }
 
+  const getName = () => {
+    if(state.user.email){
+      const name = state.user.email.substring(0, state.user.email.lastIndexOf("@"));
+      return name;
+    }
+  }
+
+  const onDisplayHistory = () => {
+    props.history.push('/history');
+  }
+
   return(
     <div>
       <Header title="Topi">
-        <Link to='/history'>History</Link>
+        <Dropdown title="User" size="sm" alignRight>
+          <Dropdown.Toggle className={styles.toggle}>{getName()}</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={onDisplayHistory} className={styles.options}>History</Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item onClick={onLogout} className={styles.options}>Sign Out</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </Header>
       <div className={styles.mainBody}>
         <Menu />
@@ -36,7 +53,6 @@ const Home = (props) => {
           <OrderList />
         </div>
       </div>
-      <Button type="submit" value="Add" text="Logout" onClick={onLogout}/>
       <Footer />
     </div>
   );
