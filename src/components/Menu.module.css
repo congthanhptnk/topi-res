@@ -1,0 +1,25 @@
+.menu{
+  flex: 2;
+  padding: 2rem;
+  flex-direction: column;
+  display: flex;
+}
+
+.placeholderContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: inherit;
+}
+
+.placeholderText{
+  composes: titleMini from '../assets/typo.module.css';
+  color: gray;
+  padding: 1rem;
+}
+
+.placeholderImg{
+  width: 50%;
+  height: 50%;
+  margin-top: 5rem;
+}

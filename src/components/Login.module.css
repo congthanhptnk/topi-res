@@ -1,0 +1,16 @@
+.mainBody{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 100vh;
+  padding: 8rem;
+}
+
+.login{
+  flex: 1;
+}
+
+.signup{
+  flex: 1;
+}

@@ -1,0 +1,34 @@
+.container{
+  display: flex;
+  align-items: center;
+  border: 2px solid var(--secondary-color);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-radius: 0.5rem;
+}
+
+.textContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-center;
+  flex: 2;
+}
+
+.name{
+  composes: titleMini from "../assets/typo.module.css";
+  margin-bottom: 0.5rem;
+}
+
+.ingredients{
+  composes: paragraphs from "../assets/typo.module.css";
+  font-size: 1rem;
+  font-style: italic;
+  color: gray;
+}
+
+.price{
+  flex: 1;
+  composes: titleMini from "../assets/typo.module.css";
+}

@@ -1,0 +1,16 @@
+.footerContainer{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 1.5rem;
+  background-color: var(--primary-color);
+  width: 100%;
+  align-items: flex-end;
+}
+
+.tag{
+  composes: titleMini from '../../assets/typo.module.css';
+  font-size: 1rem;
+  margin-right: 2rem;
+  padding: 0.5rem;
+}
