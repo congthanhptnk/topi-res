@@ -1,4 +1,0 @@
-[build]
-base = "topi-res/"
-publish = "topi-res/build/"
-command = "npm build"
