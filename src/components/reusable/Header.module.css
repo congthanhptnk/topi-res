@@ -1,0 +1,18 @@
+.header {
+  text-align: left;
+  padding: 2rem 2rem;
+  background-color: var(--primary-color) ;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.title {
+  composes: title from "../../assets/typo.module.css";
+  text-decoration: none !important;
+}
+
+.title:hover{
+  text-decoration: none !important;
+  color: var(--secondary-color);
+}

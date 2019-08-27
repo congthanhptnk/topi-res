@@ -1,0 +1,54 @@
+.listItemContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalContainer{
+  display: flex;
+  flex-direction: row;;
+  justify-content: space-between;
+}
+
+.modalTitle{
+  composes: title from "../assets/typo.module.css";
+  font-size: 1.3rem;
+}
+
+.totalText, .totalAmount{
+  composes: titleMini from "../assets/typo.module.css";
+}
+
+.divider{
+  background-color: var(--gray-light-color);
+  height: 1px;
+  margin: 1rem 2rem 1rem 2rem;
+}
+
+.amount{
+  flex:1;
+  composes: paragraphs from "../assets/typo.module.css";
+  color: var(--gray-color);
+}
+
+.name{
+  flex: 3;
+  composes: paragraphs from "../assets/typo.module.css";
+}
+
+.total{
+  flex:1;
+  composes: paragraphs from "../assets/typo.module.css";
+  text-align: right;
+}
+
+.cancelButton, .confirmButton{
+  composes: button from "../assets/uiControls.module.css";
+  font-family: 'Nunito', sans-serif;
+}
+
+.cancelButton{
+  background-color: var(--dark-color);
+  color: white;
+}
