@@ -1,4 +1,4 @@
-# JOURNAL
+# TOPI
 ### Description
 A dynamic progressive web application for personal online food service.
 ### Features
@@ -14,7 +14,7 @@ A dynamic progressive web application for personal online food service.
 ### Screenshots
 **Login Component**
 <br/>
-<img src="src/assets/screenshots/Login.png" height="400">
+<img src="src/assets/screenshots/LoginImg.png" height="400">
 **Home Component**
 <br/>
 <img src="src/assets/screenshots/HomeImg.png" height="400">
@@ -32,7 +32,7 @@ A dynamic progressive web application for personal online food service.
  - Run app with npm start or yarn start
  
 ### Code snippets:
-**"Post" entity for Room SQL**
+**Authentication Context init**
 ``` jsx
     const AuthContext = React.createContext();
 
@@ -46,7 +46,7 @@ A dynamic progressive web application for personal online food service.
     const AuthConsumer = AuthContext.Consumer;
     export {AuthProvider, AuthConsumer, AuthContext};
 ```
-**Request location permission**
+**History component with use of useEffect hook**
 ``` jsx
     const History = () => {
     const { state, dispatch } = useContext(UserOrdersContext);
